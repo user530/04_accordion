@@ -1,10 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
+import data from "./data";
+import Question from "./Question";
 
 function App() {
+  const [questions, setQuestions] = useState(data);
+
   return (
-    <React.Fragment>
-      <h2>APP COMPONENT</h2>
-    </React.Fragment>
+    <main>
+      <div className="container">
+        <h3>Questions and answers about login</h3>
+        <section className="info">
+          {questions.map(({ id, title, info }) => (
+            <Question key={id} title={title} info={info} />
+          ))}
+        </section>
+      </div>
+    </main>
   );
 }
 
